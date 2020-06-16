@@ -8,17 +8,33 @@ class Pages extends BaseController
     {
         $data = ['title' => 'Home WPU'];
 
-        echo view('layouts/header', $data);
-        echo view('pages/home');
-        echo view('layouts/footer');
+        return view('pages/home', $data);
     }
 
     public function about()
     {
         $data = ['title' => 'About WPU'];
 
-        echo view('layouts/header', $data);
-        echo view('pages/about');
-        echo view('layouts/footer');
+        return view('pages/about', $data);
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contact Us',
+            'alamat' => [
+                [
+                    'tipe' => "Rumah",
+                    'alamat' => 'Jl. ABC 123',
+                    'kota' => 'Bandung'
+                ],
+                [
+                    'tipe' => 'Kantor',
+                    'alamat' => 'Jl. Setia Budi',
+                    'kota' => 'Bandung'
+                ]
+            ]
+        ];
+        return view('pages/contact', $data);
     }
 }
